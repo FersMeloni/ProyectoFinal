@@ -1,0 +1,48 @@
+
+{%extends "AppMundial/padre.html"%}
+
+{%load static%}
+
+
+
+
+{% block contenidoQueCambia %}
+
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Es es una autoapp para completar con los datos del mundial</h1>
+  
+
+    <h3>Podes buscar un jugador por su posicion:</h3>
+
+    <form action="/AppMundial/buscar/" method="GET">
+
+        <input type="text" name="posicion" id="posicion">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    
+
+    <p>Estamos buscando: {{posicion}}</p>
+
+    {% if jugador %}
+
+    <ul>
+	{% for jugador in jugador %}
+		<li> {{jugador.jugador}} </li>
+        <li> {{jugador.edad}} </li>
+		<li> {{jugador.posicion}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}

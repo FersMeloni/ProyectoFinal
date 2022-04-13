@@ -1,0 +1,44 @@
+{%extends "AppMundial/padre.html"%}
+
+{%load static%}
+
+
+
+
+{% block contenidoQueCambia %}
+
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Este es el título del Inicio que cambio</h1>
+  
+
+    <h3>Podes buscar un jugador:</h3>
+
+    <form action="/AppMundial/buscar/" method="GET">
+
+        <input type="text" name="jugador" id="jugador">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    {% if jugador %}
+
+    <p>Estamos buscando la: {{posicion}}</p>
+
+    <ul>
+	{% for jug in jugador %}
+		<li> {{jug.nombre}} </li>
+		<li> {{jug.posicion}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}
